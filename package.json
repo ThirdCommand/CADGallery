@@ -1,5 +1,5 @@
 {
-  "name": "CADGallery",
+  "name": "Proposal",
   "private": true,
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -13,18 +13,5 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "webpack": "^4.11.1"
-  },
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
