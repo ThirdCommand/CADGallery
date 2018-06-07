@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   def create 
     @user = User.new(user_params)
+    debugger
     if @user.save
       login(@user)
     else 
@@ -13,13 +14,13 @@ class Api::UsersController < ApplicationController
   
 
   def destroy 
-    @user = User.findby(session_token: session[:session_token])
+    @user = User.find_by_session_token(session[:session_token])
     @user.delete
   end
 
 private
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user).permit(:password, :email, :first_name, :last_name)
   end
 
 end

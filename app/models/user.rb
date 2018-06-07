@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :img_url, :password_digest, :session_token, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   after_initialize :ensure_session_token, :ensure_image_url
+  attr_reader :password
 
   #users have many projects, and have many likes and comments through projects
   # has_many :projects
@@ -26,7 +27,7 @@ class User < ApplicationRecord
   #   through: projects
   
   def self.find_by_credentials(email,password)
-    user = User.find_by(email: email)
+    user = User.find_by_email(email)
     user && user.is_password?(password) ? user : nil 
   end
 
@@ -40,20 +41,18 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    self.session_token = SecureRandom.urlSafe_base64
+    self.session_token = SecureRandom.urlsafe_base64
     self.save!
     self.session_token
   end
 
   def ensure_image_url
     #randomize pictures interpolate
-    self.image_url ||= '../assets/images/guest'
-    self.save! 
-    self.image_url
+    self.img_url ||= '../assets/images/guest'
   end
 
   def ensure_session_token
-    self.session_token ||= SecureRandom.urlSafe_base64
+    self.session_token ||= SecureRandom.urlsafe_base64
   end
   
   
