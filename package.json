@@ -13,5 +13,30 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "webpack": "^4.11.1"
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SecondCommand/CADGallery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SecondCommand/CADGallery/issues"
+  },
+  "homepage": "https://github.com/SecondCommand/CADGallery#readme"
 }
