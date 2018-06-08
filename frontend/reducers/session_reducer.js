@@ -14,5 +14,3 @@ export default (state = {id: null}, action) => {
   }
 }
 
-
-
