@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // &nbsp ..?
 
-const Greeting = ({currentUser, logout}) => {
+const Greeting = ({currentUser, signout}) => {
   const sessionLinks = () => (
     <nav className="signin-signup">
       <Link to="/signin">Sign In</Link>
@@ -12,8 +12,8 @@ const Greeting = ({currentUser, logout}) => {
   );
   const personalGreeting = () => (
     <hgroup className="header-group">
-      <h2 className="header-name">Hello!?, hello, {currentUser.username}!</h2>
-      <button className="header-name" onClick={logout}>Log Out</button>
+      <h2 className="header-name">Hello!?, hello, {currentUser.first_name}!</h2>
+      <button className="header-name" onClick={signout}>Log Out</button>
     </hgroup>
   );
   return currentUser ? personalGreeting() : sessionLinks();

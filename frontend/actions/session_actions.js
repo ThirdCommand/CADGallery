@@ -8,7 +8,7 @@ export const signin = (user) => {
     return APIUtil.signin(user).then((user) => {
       return dispatch(receiveCurrentUser(user))
     }, (errors) => {
-      return dispatch(receiveErrors(errors))
+      return dispatch(receiveErrors(errors.responseJSON))
     })
   }
 }
@@ -18,7 +18,7 @@ export const signout = () => {
     return APIUtil.signout().then(()=> {
       return dispatch(signoutCurrentUser())
     }, (errors) => {
-      return dispatch(receiveErrors(errors))
+      return dispatch(receiveErrors(errors.responseJSON))
     })
   }
 }
@@ -28,7 +28,7 @@ export const signup = (user) => {
     return APIUtil.signup(user).then((user) => {
       return dispatch(receiveCurrentUser(user))
     }, (errors) => {
-      return dispatch(receiveErrors(errors))
+      return dispatch(receiveErrors(errors.responseJSON))
     })
   }
 }
