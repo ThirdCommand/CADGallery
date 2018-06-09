@@ -1,0 +1,93 @@
+::-webkit-input-placeholder { color: #E2E2E2; font-family: sans-serif; }
+::-moz-placeholder { color:#E2E2E2; font-family: sans-serif; } /* firefox 19+ */
+:-ms-input-placeholder { color:#E2E2E2; font-family: sans-serif; } /* ie */
+input:-moz-placeholder { color:#E2E2E2; font-family: sans-serif; }
+
+.everything{
+  font-family: cadgallery;
+}
+
+.signin-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signin-form-box{
+  height: 250px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+//************************
+.form-header{
+  width: 370px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  background: image-url("logoimg.png");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+
+.form-header-text{
+  position: relative;
+  bottom: -10px;
+}
+
+//*************************
+
+.signin-input{
+  margin-top: 8px;
+  margin-bottom: 10px;
+  box-sizing: content-box;
+  height: 25px;
+  font-size: 12px;
+  width: 356px;
+  background: white;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.input-header-text-color{
+  // color: red;
+  margin-bottom: 100px;
+  color: rgb(177, 177, 177);
+}
+
+.switch-form-text{
+
+}
+
+.switch-form-link{
+  color: #00BBAC;
+}
+
+.switch-form-link:hover{
+  text-decoration: underline;
+}
+
+.session-submit {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  width: 100%;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  background: rgb(55, 147, 197)
+}
+
+.session-submit:hover{
+  background: #2B80AD;
+}
+//<i class="fas fa-chevron-left"></i>
+

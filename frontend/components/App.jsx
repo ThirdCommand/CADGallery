@@ -8,7 +8,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import SigninFormContainer from './session_form/signin_form_container';
 import SigninFormPasswordContainer from './session_form/signin_form_password_container';
 const App = () => (
-  <div>
+  <div className="everything">
     <header>
       <NavBarContainer/>
     </header>

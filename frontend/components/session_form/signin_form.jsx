@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
+import {logoImg} from '../logo';
 
 
 class SigninForm extends React.Component {
@@ -53,31 +53,35 @@ NEXT (button)
   render() {
     return (
       <div className="signin-form-container">
+        <div className="form-header"> <div className="form-header-text">Sign in</div><div className="logo"></div></div>
         <form onSubmit={this.handleSubmit} className="signin-form-box">
-          <br />
+         
           {this.renderErrors()}
           <div className="signin-form">
             <br />
-            <label>Email:</label>
+            <label className="input-header-text-color">Email </label>
             <br />
             <input type="text"
               value={this.state.username}
               onChange={this.update('email')}
               className="signin-input"
+              placeholder="name@example.com"
             />
             <br />
-            <label>Password:</label>
+            <label className="input-header-text-color">Password </label>
             <br />
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="signin-input"
+                placeholder="Password"
               />
             <br />
-            <input className="session-submit" type="submit" value="SIGN IN" />
+            <button className="session-submit" >SIGN IN</button>
           </div>
+          <div className="switch-form-text" >NEW TO AUTODESK? <Link className="switch-form-link" to="/signup">CREATE ACCOUNT</Link></div>
         </form>
-        NEW TO AUTODESK? <Link to="/signup">CREATE ACCOUNT</Link>
+
       </div>
     );
   }

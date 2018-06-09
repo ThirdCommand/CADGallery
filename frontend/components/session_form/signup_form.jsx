@@ -40,6 +40,7 @@ class SignupForm extends React.Component {
   
   Sign in
   
+
   email
   
   new to CADGallery
@@ -51,31 +52,35 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signin-form-container">
+        <div className="form-header"> <div className="form-header-text">Create Account</div><div className="logo"></div></div>
         <form onSubmit={this.handleSubmit} className="signin-form-box">
-
-          <br />
+          
           {this.renderErrors()}
           <div className="signin-form">
             <br />
-            <label>Email: </label>
+            <label className="input-header-text-color">Email </label>
             <br/>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('email')}
                 className="signin-input"
+                placeholder="name@example.com"
               />
             <br />
-            <label>Password: </label>
+            <label className="input-header-text-color" >Password </label>
               <br />
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="signin-input"
+                placeholder="Password"
               />
             <br />
             <input className="session-submit" type="submit" value="SIGN UP" />
-            <br/>
-            ALREADY HAVE AN ACCOUNT? <Link to="/signin">SIGN IN</Link>
+          </div>
+          <div className="switch-form-text">
+            ALREADY HAVE AN ACCOUNT? 
+            <Link className="switch-form-link" to="/signin">SIGN IN</Link>
           </div>
         </form>
       </div>

@@ -25,6 +25,9 @@ const NavBar = ({currentUser, signout, signin}) => {
       <Link to="/" className="header-link"><span>LOGOLINK</span></Link>
       <span>NAV BAR</span>
       <button className="header-name" onClick={signout}>Log Out</button>
+      <br/>
+      <br/>
+      <br/>
     </div>
   )
 
@@ -32,7 +35,10 @@ const NavBar = ({currentUser, signout, signin}) => {
     <div>
       <Link to="/" className="header-link"><span>LOGOLINK</span></Link>
       <span>NAV BAR</span>
-      <Link to="/signin">sign in</Link>
+      <Link to="/signin" className="header-link"><span>Sign In</span></Link>
+      <br />
+      <br />
+      <br />
     </div>
   )
   return currentUser ? signedinNav() : signedoutNav();
