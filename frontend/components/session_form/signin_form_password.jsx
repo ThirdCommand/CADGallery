@@ -24,7 +24,6 @@ class SigninPasswordForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.errors);
     // <ul>
     //   {this.props.errors.map((error, i) => (
     //     <li key={`error-${i}`}>

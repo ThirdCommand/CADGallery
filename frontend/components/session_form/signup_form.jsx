@@ -17,16 +17,18 @@ class SignupForm extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
 
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
 
   renderErrors() {
-    console.log(this.errors);
     // <ul>
     //   {this.props.errors.map((error, i) => (
     //     <li key={`error-${i}`}>

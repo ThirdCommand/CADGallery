@@ -35,16 +35,7 @@ class NavBar extends React.Component {
   
     
   render() {
-    console.log(this.props);
     return this.props.currentUser ? this.signedinNav() : this.signedoutNav()
-    //return <div> {this.signedoutNav()} </div> 
-    // console.log(this.props);
-    // switch (this.props.match) {
-    //   // case ():
-    //   //   return this.signedinNav()
-    //   default:
-    //     return this.signupinNav()
-    // }
   };
 }
 export default NavBar;

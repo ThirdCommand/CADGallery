@@ -10,9 +10,14 @@ class SigninForm extends React.Component {
       email: '',
       password: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSubmit = this.demoSubmit.bind(this);
   }
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   
   update(field) {
     return e => this.setState({
@@ -23,7 +28,6 @@ class SigninForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    
     this.props.processForm(user);
   }
 
@@ -34,7 +38,6 @@ class SigninForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.errors);
     // <ul>
     //   {this.props.errors.map((error, i) => (
     //     <li key={`error-${i}`}>
@@ -87,11 +90,7 @@ NEXT (button)
           </div>
 
           <div className="switch-form-text" >
-              NEW TO CADGALLERY? 
-              <Link 
-                className="switch-form-link" to="/signup">
-                CREATE ACCOUNT
-              </Link>
+              NEW TO CADGALLERY? <Link className="switch-form-link" to="/signup">CREATE ACCOUNT</Link>
           </div>
         </div>
 

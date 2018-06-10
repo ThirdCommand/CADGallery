@@ -5,7 +5,6 @@ import SignupinNavBar from './signupin_nav_bar';
 
 
 const mapStateToProps = ({ session, entities: { users } }, ownProps) => {
-  // console.log(ownProps);
   return {
     // currentUser: users[session.id],
     // ownProps
