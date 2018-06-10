@@ -11,8 +11,9 @@ class SigninForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoSubmit = this.demoSubmit.bind(this);
   }
-
+  
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -22,6 +23,13 @@ class SigninForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    
+    this.props.processForm(user);
+  }
+
+  demoSubmit(e) {
+    e.preventDefault();
+    const user = {email: "DemoUser@demo.user", password: "password"}
     this.props.processForm(user);
   }
 
@@ -57,7 +65,8 @@ NEXT (button)
       <div className="signin-form-container">
         <label>{this.props.errors[0] ? `${this.props.errors[0]}` : ""}</label>
         <div className="form-header"> <div className="form-header-text">Sign in</div><div className="logo"></div></div>
-        <form onSubmit={this.handleSubmit} className="signin-form-box">
+        <div className="signin-form-box">
+
           <div className="signin-form">
             <label className="input-header-text-color">Email </label>
             <input type="text"
@@ -73,10 +82,18 @@ NEXT (button)
               className="signin-input"
               placeholder="Password"
             />
-            <button className="session-submit" >SIGN IN</button>
+            <button className="session-submit" onClick={this.handleSubmit}>SIGN IN </button>
+            <button className="session-demo-submit" onClick={this.demoSubmit}>DEMO USER </button>
           </div>
-          <div className="switch-form-text" >NEW TO CADGALLERY? <Link className="switch-form-link" to="/signup">CREATE ACCOUNT</Link></div>
-        </form>
+
+          <div className="switch-form-text" >
+              NEW TO CADGALLERY? 
+              <Link 
+                className="switch-form-link" to="/signup">
+                CREATE ACCOUNT
+              </Link>
+          </div>
+        </div>
 
       </div>
     );
