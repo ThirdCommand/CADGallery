@@ -1,47 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({currentUser, signout, signin}) => {
+class NavBar extends React.Component {
 
-  const sessionLinks = () => (
-    <div>
-      <button className="signin-signup-button">Sign In</button>
-      <Link to="/signin">Sign In</Link>
-        &nbsp;or&nbsp; 
-      <h4 className="signup-text">NEW TO CADGALLERY?</h4><Link className="signup-signin-link" to="/signup">CREATE ACCOUNT</Link>
-    </div>
-  );
+  signedinNav () {
+    return (
+      <div>
+        <Link to="/" className="nav-logo-link"><span>LOGOLINK</span></Link>
+        <button className="nav-signout-button" onClick={this.props.signout}>Log Out</button>
+      </div>
+    );
+  }
 
-  // if signed in, no need for signin link sprite
-  const personalGreeting = () => (
-    <hgroup className="header-group">
-      <h2 className="header-name">Hello!?, hello, {currentUser.first_name}!</h2>
-      <button className="header-name" onClick={signout}>Log Out</button>
-    </hgroup>
-  );
-
-  const signedinNav = () => (
-    <div>
-      <Link to="/" className="header-link"><span>LOGOLINK</span></Link>
-      <span>NAV BAR</span>
-      <button className="header-name" onClick={signout}>Log Out</button>
-      <br/>
-      <br/>
-      <br/>
-    </div>
-  )
-
-  const signedoutNav = () => (
-    <div>
-      <Link to="/" className="header-link"><span>LOGOLINK</span></Link>
-      <span>NAV BAR</span>
-      <Link to="/signin" className="header-link"><span>Sign In</span></Link>
-      <br />
-      <br />
-      <br />
-    </div>
-  )
-  return currentUser ? signedinNav() : signedoutNav();
-};
-
+  signedoutNav() {
+    return (
+      <div className="nav-bar-container">
+        <Link to="/" className="nav-logo-link"><span>LOGOLINK</span></Link>
+        <Link to="/signin" className="signin-link"><span> Sign In</span></Link>
+      </div>
+    );
+  }
+  
+    
+  render() {
+    console.log(this.props.currentUser);
+    return this.props.currentUser ? this.signedinNav() : this.signedoutNav()
+    //return <div> {this.signedoutNav()} </div> 
+    // console.log(this.props);
+    // switch (this.props.match) {
+    //   // case ():
+    //   //   return this.signedinNav()
+    //   default:
+    //     return this.signupinNav()
+    // }
+  };
+}
 export default NavBar;

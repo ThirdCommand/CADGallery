@@ -80,7 +80,7 @@ class SignupForm extends React.Component {
           </div>
           <div className="switch-form-text">
             ALREADY HAVE AN ACCOUNT? 
-            <Link className="switch-form-link" to="/signin">SIGN IN</Link>
+            <Link className="switch-form-link" to="/signin"> SIGN IN</Link>
           </div>
         </form>
       </div>
