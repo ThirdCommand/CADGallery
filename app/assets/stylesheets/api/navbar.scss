@@ -1,15 +1,56 @@
 
 .nav-bar-container{
   display: flex;
+  background: rgba(71, 202, 71, 0.33);
   justify-content: space-between;
+  align-items: center;
+  height: 50px;
 }
 
-.signin-link {
+.signin-button-link {
   margin-right: 30px;
+  height: 100%;
+  background: #0099D3;
+  color: white;
+  display: flex;
+  width: 105px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  margin-right: 10px;
+  background: image-url("logo.png");
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: 25px 25px;
+}
+
+.nav-logo-text{
+  font-size: 25px;
+}
+
+.signin-icon {
+  background: image-url("signin.png");
+  margin-left: 15px;
+  background-repeat: no-repeat;
+  width: 20px;
+  margin-right: 5px;
+  height: 20px;
+  background-size: 20px, 20px;
+}
+
+.session-link-text{
+  font-size: 15px;
+  height: 20px;
 }
 
 .nav-logo-link {
+  display: flex;
+  align-items: center;
   margin-left: 30px;
+  height: 20px;
 }
 
 

@@ -11,12 +11,19 @@ class NavBar extends React.Component {
       </div>
     );
   }
+  
 
   signedoutNav() {
     return (
       <div className="nav-bar-container">
-        <Link to="/" className="nav-logo-link"><span>LOGOLINK</span></Link>
-        <Link to="/signin" className="signin-link"><span> Sign In</span></Link>
+        <Link to="/" className="nav-logo-link">
+          <div className="nav-logo"></div>
+          <div calssName="nav-logo-text">CADGallery</div>
+        </Link>
+        <Link to="/signin" className="signin-button-link">
+          <div className="signin-icon"></div>
+          <div className="session-link-text">Sign In</div>
+        </Link>
       </div>
     );
   }
