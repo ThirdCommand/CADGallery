@@ -19,6 +19,8 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
+
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
@@ -52,30 +54,43 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signin-form-container">
+        <label>{this.props.errors[0] ? `${this.props.errors[0]}` : ""}</label>
         <div className="form-header"> <div className="form-header-text">Create Account</div><div className="logo"></div></div>
         <form onSubmit={this.handleSubmit} className="signin-form-box">
-          
-          {this.renderErrors()}
           <div className="signin-form">
-            <br />
+            <div className="name-labels">
+                <label className="input-header-text-color">First Name </label>
+                <label className="input-header-text-color">Last Name </label>
+            </div>
+            <div className="firstlast-name-container">
+              <input type="text"
+                value={this.state.username}
+                onChange={this.update('first_name')}
+                className="signin-input-name"
+                placeholder="first name"
+              />
+              <input type="text"
+                value={this.state.username}
+                onChange={this.update('last_name')}
+                className="signin-input-name"
+                placeholder="last name"
+              />
+            </div>
+
             <label className="input-header-text-color">Email </label>
-            <br/>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('email')}
                 className="signin-input"
                 placeholder="name@example.com"
               />
-            <br />
             <label className="input-header-text-color" >Password </label>
-              <br />
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="signin-input"
                 placeholder="Password"
               />
-            <br />
             <input className="session-submit" type="submit" value="SIGN UP" />
           </div>
           <div className="switch-form-text">

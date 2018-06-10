@@ -5,22 +5,27 @@ class NavBar extends React.Component {
 
   signedinNav () {
     return (
-      <div>
-        <Link to="/" className="nav-logo-link"><span>LOGOLINK</span></Link>
-        <button className="nav-signout-button" onClick={this.props.signout}>Log Out</button>
+      <div className="nav-bar-container">
+        <Link to="/" className="nav-logo-link">
+          <div className="nav-logo"></div>
+          <div className="nav-logo-text">CADGallery</div>
+        </Link>
+        <button onClick={() => this.props.signout()} className="signinout-button-link">
+          <div className="signout-icon"></div>
+          <div className="session-link-text">Sign out</div>
+        </button>
       </div>
     );
   }
-  
 
   signedoutNav() {
     return (
       <div className="nav-bar-container">
         <Link to="/" className="nav-logo-link">
           <div className="nav-logo"></div>
-          <div calssName="nav-logo-text">CADGallery</div>
+          <div className="nav-logo-text">CADGallery</div>
         </Link>
-        <Link to="/signin" className="signin-button-link">
+        <Link to="/signin" className="signinout-button-link">
           <div className="signin-icon"></div>
           <div className="session-link-text">Sign In</div>
         </Link>
@@ -30,7 +35,7 @@ class NavBar extends React.Component {
   
     
   render() {
-    console.log(this.props.currentUser);
+    console.log(this.props);
     return this.props.currentUser ? this.signedinNav() : this.signedoutNav()
     //return <div> {this.signedoutNav()} </div> 
     // console.log(this.props);

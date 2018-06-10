@@ -7,7 +7,7 @@
   height: 50px;
 }
 
-.signin-button-link {
+.signinout-button-link {
   margin-right: 30px;
   height: 100%;
   background: #0099D3;
@@ -28,7 +28,9 @@
 }
 
 .nav-logo-text{
-  font-size: 25px;
+  font-weight: 1000;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
 .signin-icon {
@@ -39,6 +41,17 @@
   margin-right: 5px;
   height: 20px;
   background-size: 20px, 20px;
+}
+
+.signout-icon {
+  background: image-url("signout.png");
+  margin-left: 15px;
+  background-repeat: no-repeat;
+  width: 20px;
+  margin-right: 5px;
+  height: 20px;
+  background-size: 20px,
+  20px;
 }
 
 .session-link-text{
