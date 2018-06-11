@@ -10,8 +10,6 @@
     end
   end
 
-  #new method only needed for a seperate page
-  #not needed anymore. passed @user down to the page
   
 
   def destroy 
