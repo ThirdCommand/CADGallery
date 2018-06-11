@@ -9,6 +9,7 @@ class SignupForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   update(field) {
@@ -53,10 +54,21 @@ class SignupForm extends React.Component {
   
   */
 
+  displayErrors()  {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
   render() {
     return (
       <div className="signin-form-container">
-        <label>{this.props.errors[0] ? `${this.props.errors[0]}` : ""}</label>
         <div className="form-header"> <div className="form-header-text">Create Account</div><div className="logo"></div></div>
         <form onSubmit={this.handleSubmit} className="signin-form-box">
           <div className="signin-form">
@@ -93,6 +105,9 @@ class SignupForm extends React.Component {
                 className="signin-input"
                 placeholder="Password"
               />
+              <div className="session-show-errors">
+                {this.props.errors[0] ? this.displayErrors() : ""}
+              </div>
             <input className="session-submit" type="submit" value="SIGN UP" />
           </div>
           <div className="switch-form-text">

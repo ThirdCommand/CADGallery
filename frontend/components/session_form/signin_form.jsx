@@ -37,16 +37,16 @@ class SigninForm extends React.Component {
     this.props.processForm(user);
   }
 
-  renderErrors() {
-    // <ul>
-    //   {this.props.errors.map((error, i) => (
-    //     <li key={`error-${i}`}>
-    //       {error}
-    //     </li>
-    //   ))}
-    // </ul>
-    return (<div></div>
-    );
+  displayErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    )
   }
 
 /*
@@ -66,7 +66,6 @@ NEXT (button)
     
     return (
       <div className="signin-form-container">
-        <label>{this.props.errors[0] ? `${this.props.errors[0]}` : ""}</label>
         <div className="form-header"> <div className="form-header-text">Sign in</div><div className="logo"></div></div>
         <div className="signin-form-box">
 
@@ -85,6 +84,9 @@ NEXT (button)
               className="signin-input"
               placeholder="Password"
             />
+            <div className="session-show-errors">
+              {this.props.errors[0] ? this.displayErrors() : ""}
+            </div>
             <button className="session-submit" onClick={this.handleSubmit}>SIGN IN </button>
             <button className="session-demo-submit" onClick={this.demoSubmit}>DEMO USER </button>
           </div>
