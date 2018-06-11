@@ -15,7 +15,7 @@ class SigninForm extends React.Component {
     this.demoSubmit = this.demoSubmit.bind(this);
   }
   componentDidMount() {
-    // this.props.clearErrors();
+    this.props.clearErrors();
   }
 
   
