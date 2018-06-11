@@ -14,4 +14,5 @@ class Project < ApplicationRecord
   validates title, description, user_id, presence: true
   hasmany :pictures
   belongs_to :user
+  hasmany :comments
 end
