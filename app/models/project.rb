@@ -11,8 +11,8 @@
 #
 
 class Project < ApplicationRecord
-  # validates :title, :description, presence: true
-  # has_many :pictures
-  # belongs_to :user
-  # has_many :comments
+  validates :title, :description, :user_id, presence: true
+  has_many :pictures
+  belongs_to :user
+  has_many :comments
 end

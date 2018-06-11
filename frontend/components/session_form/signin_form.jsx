@@ -62,8 +62,6 @@ NEXT (button)
 */
 
   render() {
-
-    
     return (
       <div className="signin-form-container">
         <div className="form-header"> <div className="form-header-text">Sign in</div><div className="logo"></div></div>

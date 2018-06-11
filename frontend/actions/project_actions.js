@@ -7,7 +7,7 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const fetchProject = (projectId) => {
   return (dispatch) => {
     return APIUtil.fetchProject(projectId).then((project) => {
-      return dispatch(fetchProjects(project))
+      return dispatch(receiveProject(project))
     }, (errors) => {
       return dispatch(receiveErrors(errors.responseJSON))
     })
@@ -16,8 +16,8 @@ export const fetchProject = (projectId) => {
 
 export const fetchProjects = () => {
   return (dispatch) => {
-    return APIUtil.fetchProjects().then(() => {
-      return dispatch(signoutCurrentUser())
+    return APIUtil.fetchProjects().then((projects) => {
+      return dispatch(receiveProjects(projects))
     }, (errors) => {
       return dispatch(receiveErrors(errors.responseJSON))
     })
@@ -27,7 +27,7 @@ export const fetchProjects = () => {
 export const createProject = (project) => {
   return (dispatch) => {
     return APIUtil.createProject(project).then((project) => {
-      return dispatch(receiveCurrentUser(user))
+      return dispatch(receiveProject(project))
     }, (errors) => {
       return dispatch(receiveErrors(errors.responseJSON))
     })
@@ -49,7 +49,7 @@ const receiveProject = (project) => {
   }
 }
 
-const receiveProjects = (project) => {
+const receiveProjects = (projects) => {
   return {
     type: RECEIVE_PROJECTS,
     projects
