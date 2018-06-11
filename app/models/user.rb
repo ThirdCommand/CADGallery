@@ -19,9 +19,9 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6, allow_nil: true}
   after_initialize :ensure_session_token, :ensure_image_url
   attr_reader :password
-
+  
   #users have many projects, and have many likes and comments through projects
-  # has_many :projects
+  has_many :projects
   # has_many :likes
   #   through: projects
   # has_many :comments

@@ -10,4 +10,6 @@
 #
 
 class Picture < ApplicationRecord
+  validates img_url, project_id, presence: true
+  belongs_to :project
 end
