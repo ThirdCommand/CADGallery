@@ -12,7 +12,7 @@
 
 class Project < ApplicationRecord
   validates :title, :description, presence: true
-  hasmany :pictures
+  has_many :pictures
   belongs_to :user
-  hasmany :comments
+  has_many :comments
 end
