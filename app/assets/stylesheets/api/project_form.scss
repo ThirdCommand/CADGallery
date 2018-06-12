@@ -1,0 +1,143 @@
+.container{
+  background: rgb(238,238,238);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.project-form-container{
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+
+.form-title{
+ margin-top: 36px;
+ color: #1D94D5;
+ font-size: 30px;
+}
+
+.project-title-form-container{
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.title-field-label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.input-label{
+  margin-bottom: 17px;
+}
+
+.project-title-text-input{
+
+  margin-top: 8px;
+  margin-bottom: 10px; // box-sizing: content-box;
+  height: 25px;
+  font-size: 12px;
+  width: 620px;
+  border: 1px solid #C2C2C2;
+  padding: 5px;
+  border-radius: 3px;
+  background: rgb(255, 255, 255);
+}
+
+.assets-container{
+  width: 318px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-type-container{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.upload-assets-button{
+  box-sizing: border-box;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+  color: rgb(55, 147, 197);
+  border: 1.4px solid rgb(55, 147, 197);
+  border-radius: 5px;
+  background: white;
+
+}
+
+.upload-assets-button:hover {
+  border: 2px solid rgb(55, 147, 197);
+}
+
+.input-field-label{
+  
+}
+
+.description-input-field {
+  margin-top: 8px;
+  margin-bottom: 10px; // box-sizing: content-box;
+  height: 250px;
+  font-size: 15px;
+  border: 1px solid #C2C2C2;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 1px;
+  width: 100%;
+  resize: none;
+}
+
+.project-description-container {
+  margin-top: 10px;
+}
+
+
+.form-buttons {
+  width: 275px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.publish-button{
+  font-family: sans-serif;
+  letter-spacing: 1.25px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 125px;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  background: rgb(55, 147, 197);
+}
+
+.publish-button:hover{
+  border: 2px solid #05608a;
+}
+
+.cancel-button{
+  font-family: sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 125px;
+  height: 40px;
+  color: rgb(55, 147, 197);
+  border: 1.4px solid rgb(55, 147, 197);
+  border-radius: 5px;
+  background: white;
+}
+
+.cancel-button:hover{
+  border: 2px solid rgb(55, 147, 197);
+}

@@ -1,10 +1,11 @@
 
 .nav-bar-container{
   display: flex;
-  background: rgba(71, 202, 71, 0.33);
+  background: rgb(255, 255, 255);
   justify-content: space-between;
   align-items: center;
   height: 50px;
+  border-bottom: 1.25px solid rgb(204, 204, 204)
 }
 
 .signinout-button-link {
@@ -16,6 +17,7 @@
   width: 105px;
   display: flex;
   align-items: center;
+  // border-bottom: 1.5px solid rgb(204, 204, 204)
 }
 
 .nav-logo {

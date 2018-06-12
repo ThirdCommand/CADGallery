@@ -43,25 +43,26 @@ class ProjectForm extends React.Component {
   render() {
     //background color should be 238/238/238
     return (
-      <div className="project-form-container">
-        <h2 className='form-title'> Create new project</h2> 
-        <div className='project-title-form-container'>
-          <div className='title-field-label'><label className='input-label' >Project title </label></div>
-          <input className='project-title-text-input' type="text"/>
+      <div className="container">
+        <div className='project-form-container'>
+          <h2 className='form-title'> Create new project</h2> 
+          <div className='project-title-form-container'>
+            <div className='title-field-label'><label className='input-label' >Project title </label></div>
+            <input className='project-title-text-input' type="text"/>
+          </div>
+          <div className='assets-container'>
+            <div className='input-type-container'><label className='input-field-label'>Project assets </label></div>
+            <button className='upload-assets-button'>Upload assets</button>
+          </div>
+          <div className='project-description-container'>
+            <div><label className='input-field-label'>Project description </label></div>
+            <textarea  className='description-input-field' name="" id="" cols="30" rows="10"></textarea>
+          </div>
+          <div className='form-buttons'>
+            <button className="publish-button" onClick={this.handleSubmit}>Publish</button>
+            <button className='cancel-button'>Cancel</button>
+          </div>
         </div>
-        <div className='assets-container'>
-          <div><label className='input-field-label'>Project assets </label></div>
-          <button className='upload-assets-button'>Upload assets</button>
-        </div>
-        <div className='project-description-container'>
-          <div><label className='input-field-label'>Project description </label></div>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-          <button className="publish-button" onClick={this.handleSubmit}>Publish</button>
-          <button className='cancel-button'>Cancel</button>
-        </div>
-
       </div>
     );
   }
