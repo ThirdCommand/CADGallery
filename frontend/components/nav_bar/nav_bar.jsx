@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
-
+  //refactor for signed in signed out
+  //refactor to allow url display
   signedinNav () {
     return (
       <div className="nav-bar-container">

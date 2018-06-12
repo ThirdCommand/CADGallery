@@ -6,16 +6,33 @@ import {createProject, fetchProjects, fetchProject} from './actions/project_acti
 import Root from './components/root';
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const store = configureStore();
+  // const store = configureStore();
+  let store;  
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        users: {[window.currentUser.id]: window.currentUser}
+      },
+      session: { id: window.currentUser.id}
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
+
+
   // window.signin = signin;
   // window.signout = signout;
   // window.signup = signup;
-  window.createProject = createProject;
-  window.fetchProject = fetchProject;
-  window.fetchProjects = fetchProjects;
-  window.getState = store.getState; // for testing
-  window.dispatch = store.dispatch; // for testing
+  // window.createProject = createProject;
+  // window.fetchProject = fetchProject;
+  // window.fetchProjects = fetchProjects;
+  // window.getState = store.getState; // for testing
+  // window.dispatch = store.dispatch; // for testing
   ReactDOM.render(<Root store={store}/>, root);
 });

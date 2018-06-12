@@ -18,6 +18,21 @@ export const fetchProjects = () => {
 export const fetchProject = (projectId) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/projects/${projectId}`,
+    url: `/api/projects/${projectId}`
+  })
+}
+
+export const updateProject = (project) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/projects/${project.id}`,
+    data: {data}
+  })
+}
+
+export const deleteProject = (projectId) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/projects/${projectId}`
   })
 }

@@ -11,8 +11,8 @@ import SignupinNavBarContainer from './nav_bar/signupin_nav_bar_container';
 const App = () => (
   <div className="everything">
     <Switch>
-      <Route exact path="/signup" component={SignupinNavBarContainer}/>
-      <Route exact path="/signin" component={SignupinNavBarContainer}/>
+      <AuthRoute exact path="/signup" component={SignupinNavBarContainer}/>
+      <AuthRoute exact path="/signin" component={SignupinNavBarContainer}/>
       <Route path="/" component={NavBarContainer}/>
     </Switch>
     <Switch>
