@@ -6,8 +6,6 @@ import {createProject, fetchProjects, fetchProject} from './actions/project_acti
 import Root from './components/root';
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   // const store = configureStore();
@@ -17,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entities: {
         users: {[window.currentUser.id]: window.currentUser}
       },
-      session: { id: window.currentUser.id}
+      session: window.currentUser
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -25,14 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-
   // window.signin = signin;
   // window.signout = signout;
   // window.signup = signup;
   // window.createProject = createProject;
   // window.fetchProject = fetchProject;
   // window.fetchProjects = fetchProjects;
-  // window.getState = store.getState; // for testing
-  // window.dispatch = store.dispatch; // for testing
+  window.getState = store.getState; // for testing
+  window.dispatch = store.dispatch; // for testing
   ReactDOM.render(<Root store={store}/>, root);
 });
