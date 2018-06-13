@@ -141,3 +141,26 @@
 .cancel-button:hover{
   border: 2px solid rgb(55, 147, 197);
 }
+
+.preview-pic-container{
+  // width: 250px;
+}
+
+.preview-pic{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  // overflow: hidden;
+  // background-size: 38px 38px;
+}
+
+.dropzone{
+  border: 1px dashed #05608a;
+  width:  150px;
+  height: 150px;
+  background: white;
+}
+
+.file-upload-instructions {
+  
+}

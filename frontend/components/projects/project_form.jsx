@@ -2,6 +2,14 @@ import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import {logoImg} from '../logo';
 
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+import ContactForm from '../../image/image_upload';
+
+
+
+// CLOUDINARY_URL = 'cloudinary://696543129926915:wtdhnZTtjn5E7m2v91ysuIpxWts@secondcommand'
+
 class ProjectForm extends React.Component {
   constructor(props) {
     super(props)
@@ -44,6 +52,7 @@ class ProjectForm extends React.Component {
     //background color should be 238/238/238
     return (
       <div className="container">
+        <ContactForm/>
         <div className='project-form-container'>
           <h2 className='form-title'> Create new project</h2> 
           <div className='project-title-form-container'>
