@@ -1,6 +1,17 @@
 
 class Api::PicturesController < ApplicationController
 
+  def create_pictures
+    @pictures = Picture.new_pictures(pictures_params)
+    if @pictures
+      project_id = @pictures[0].project_id
+      # go to pictures index when completed
+      render "/api/projects/#{project_id}"
+    else 
+      render json: ["invalid picture creation paramaters"], status: 422
+    end
+  end
+
   def create 
     @picture = Picture.new(picture_params)
     if @picture.save
@@ -24,8 +35,11 @@ class Api::PicturesController < ApplicationController
   end
 
 private
-  
+  def pictures_params
+    params.require(:pictures).permit(:project_id, :img_urls)
+  end
+
   def picture_params 
-    params.require(:picture).permit(:img_url, :picture_id)
+    params.require(:picture).permit(:img_url, :project_id)
   end
 end

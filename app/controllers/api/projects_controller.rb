@@ -10,6 +10,7 @@ class Api::ProjectsController < ApplicationController
 
   def create 
     @project = Project.new(project_params)
+    @picture = Picture.new(params(:))
     if @project.save
       # go to projects index when completed
       render "/api/projects/show"
