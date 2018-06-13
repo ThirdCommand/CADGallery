@@ -16,11 +16,13 @@ class ProjectForm extends React.Component {
     super(props)
     this.state = {
       title: '',
-      body: '',
+      description: '',
       user_id: props.currentUser.id,
       uploadedFileUrls: [],
       uploadedFiles: []
     }
+    this.handleImageUpload.bind(this);
+    this.onImageDrop.bind(this);
     const showAssets = false;
   }
 
@@ -36,8 +38,14 @@ class ProjectForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
-    const project = Object.assign({}, this.state);
-    this.props.processForm(project);
+
+    let { title, description, user_id } = this.state
+    let project = {title, description, user_id}
+    debugger
+    this.props.createProject(project).then((id) => {
+      let projectPictures = { pictures: {project_id: id, pictures: this.state.uploadedFileUrls }}
+      this.props.createProjectPictures(projectPictures)
+    })
   }
 
   displayErrors() {
@@ -62,9 +70,9 @@ class ProjectForm extends React.Component {
         console.error(err);
         //add err to the errors for render
       }
-
       if (response.body.secure_url !== '') {
         let newArray = this.state.uploadedFileUrls
+        debugger
         newArray.push(response.body.secure_url)
 
         this.setState({
@@ -76,11 +84,11 @@ class ProjectForm extends React.Component {
   }
 
   onImageDrop(files) {
-    let newArray = this.state.uploadedFiles
-    newArray.push(files[0])
-    this.setState({
-      uploadedFiles: newArray
-    })
+    // let newArray = this.state.uploadedFiles
+    // newArray.push(files[0])
+    // this.setState({
+    //   uploadedFiles: newArray
+    // })
     this.handleImageUpload(files[0]);
   }
 
@@ -89,7 +97,7 @@ class ProjectForm extends React.Component {
       this.state.uploadedFileUrls.map((uploadedFileUrl, i) => (
         <div className='preview-pic-container' key={i}>
           <img className='preview-pic' src={this.state.uploadedFileUrls[i]} />
-          <p className='preview-pic-name'>{this.state.uploadedFiles[i].name}</p>
+          {/* <p className='preview-pic-name'>{this.state.uploadedFiles[i].name}</p> */}
         </div>
       ))
     )
@@ -129,17 +137,17 @@ class ProjectForm extends React.Component {
           <h2 className='form-title'> Create new project</h2> 
           <div className='project-title-form-container'>
             <div className='title-field-label'><label className='input-label' >Project title </label></div>
-            <input className='project-title-text-input' type="text"/>
+            <input className='project-title-text-input' type="text" onChange={this.update('title')}/>
           </div>
 
           {this.UploadComponent()}
           
           <div className='project-description-container'>
             <div><label className='input-field-label'>Project description </label></div>
-            <textarea  className='description-input-field' name="" id="" cols="30" rows="10"></textarea>
+            <textarea className='description-input-field' name="" id="" cols="30" rows="10" onChange={this.update('description')}></textarea>
           </div>
           <div className='form-buttons'>
-            <button className="publish-button" onClick={this.handleSubmit}>Publish</button>
+            <button className="publish-button" onClick={this.handleSubmit.bind(this)}>Publish</button>
             <button className='cancel-button'>Cancel</button>
           </div>
         </div>

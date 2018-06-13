@@ -1,8 +1,7 @@
-
 class Api::PicturesController < ApplicationController
 
   def create_pictures
-    @pictures = Picture.new_pictures(pictures_params)
+    @pictures = Picture.new_pictures(params.pictures)
     if @pictures
       project_id = @pictures[0].project_id
       # go to pictures index when completed
@@ -36,6 +35,7 @@ class Api::PicturesController < ApplicationController
 
 private
   def pictures_params
+    debugger
     params.require(:pictures).permit(:project_id, :img_urls)
   end
 

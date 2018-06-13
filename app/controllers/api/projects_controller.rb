@@ -9,11 +9,9 @@ class Api::ProjectsController < ApplicationController
   end 
 
   def create 
-    @project = Project.new(project_params)
-    @picture = Picture.new(params(:))
+    @project = Project.new(params[:user_id,:title,:body])
     if @project.save
-      # go to projects index when completed
-      render "/api/projects/show"
+      render "/api/projects/#{@project.id}/show"
     else 
       render json: @projects.errors.full_messages, status: 422
     end 
@@ -28,6 +26,6 @@ class Api::ProjectsController < ApplicationController
 private
   
   def project_params 
-    params.require(:project).permit(:title, :description, :user_id)
+    params.require(:pictures).permit(pictures: [])
   end
 end
