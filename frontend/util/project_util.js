@@ -1,9 +1,10 @@
-export const createProject = (project) => {
+export const createProject = (rawProject) => {
+  let raw_project = rawProject
   return $.ajax({
     method: 'POST',
     url: '/api/projects',
     data: {
-      project
+      raw_project
     }
   })
 }

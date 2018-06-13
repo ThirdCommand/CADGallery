@@ -1,13 +1,13 @@
 class Api::PicturesController < ApplicationController
 
-  def create_pictures
-    @pictures = Picture.new_pictures(params.pictures)
+  def create_pictures(project_id)
+    pictures_params = { project_id: project_id, img_urls: params[:raw_project][:pictures]}
+    @pictures = Picture.new_pictures(pictures_params)
     if @pictures
-      project_id = @pictures[0].project_id
       # go to pictures index when completed
-      render "/api/projects/#{project_id}"
+      return @pictures
     else 
-      render json: ["invalid picture creation paramaters"], status: 422
+      return false
     end
   end
 
@@ -34,12 +34,10 @@ class Api::PicturesController < ApplicationController
   end
 
 private
-  def pictures_params
-    debugger
-    params.require(:pictures).permit(:project_id, :img_urls)
+  def picture_urls
+    params.require(:raw_project).permit(pictures: [])
   end
-
   def picture_params 
-    params.require(:picture).permit(:img_url, :project_id)
+    params.require(:project).permit(:img_url, :project_id)
   end
 end

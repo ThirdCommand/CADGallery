@@ -9,9 +9,13 @@ class Api::ProjectsController < ApplicationController
   end 
 
   def create 
-    @project = Project.new(params[:user_id,:title,:body])
+    @project = Project.new(params[:raw_project][:project])
     if @project.save
-      render "/api/projects/#{@project.id}/show"
+      if Pictures.create_pictures(@project.id)
+        render "/api/projects/#{@project.id}/show"
+      else 
+        render json: ["pictures error"], status: 422
+      end
     else 
       render json: @projects.errors.full_messages, status: 422
     end 
@@ -23,9 +27,4 @@ class Api::ProjectsController < ApplicationController
     render "api/projects/show"
   end
 
-private
-  
-  def project_params 
-    params.require(:pictures).permit(pictures: [])
-  end
 end
