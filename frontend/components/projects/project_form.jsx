@@ -6,7 +6,8 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import ContactForm from '../../image/image_upload';
 
-
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/secondcommand/upload';
+const CLOUDINARY_UPLOAD_PRESET = 'secondcommand_preset'; 
 
 // CLOUDINARY_URL = 'cloudinary://696543129926915:wtdhnZTtjn5E7m2v91ysuIpxWts@secondcommand'
 
@@ -16,7 +17,9 @@ class ProjectForm extends React.Component {
     this.state = {
       title: '',
       body: '',
-      user_id: props.currentUser.id
+      user_id: props.currentUser.id,
+      uploadedFileUrls: [],
+      uploadedFiles: []
     }
     const showAssets = false;
   }
@@ -49,10 +52,74 @@ class ProjectForm extends React.Component {
     )
   }
 
-  showAssetUploader(e) {
-    e.preventDefault;
-    showAssets = true
+  handleImageUpload(file) {
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+      .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+      .field('file', file);
+
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+        //add err to the errors for render
+      }
+
+      if (response.body.secure_url !== '') {
+        let newArray = this.state.uploadedFileUrls
+        newArray.push(response.body.secure_url)
+
+        this.setState({
+          uploadedFileUrls: newArray
+        })
+
+      }
+    });
   }
+
+  onImageDrop(files) {
+    let newArray = this.state.uploadedFiles
+    newArray.push(files[0])
+    this.setState({
+      uploadedFiles: newArray
+    })
+    this.handleImageUpload(files[0]);
+  }
+
+  previewPics() {
+    return (
+      this.state.uploadedFileUrls.map((uploadedFileUrl, i) => (
+        <div className='preview-pic-container' key={i}>
+          <img className='preview-pic' src={this.state.uploadedFileUrls[i]} />
+          <p className='preview-pic-name'>{this.state.uploadedFiles[i].name}</p>
+        </div>
+      ))
+    )
+  }
+
+  UploadComponent() {
+
+    return (
+      <div className='assets-container'>
+        <div className='upload-box-container'>
+          <div className='input-type-container'><label className='input-field-label'>Project assets </label></div>
+          <div className='image-upload-container'>
+            <div className="FileUpload">
+              <Dropzone
+                className='dropzone'
+                multiple={false}
+                accept="image/*"
+                onDrop={this.onImageDrop.bind(this)}>
+                <p className='file-upload-instructions'>Drop an image here or click to find.</p>
+              </Dropzone>
+            </div>
+          </div>
+        </div>
+        <div className='preview-pictures-container'>
+          {this.state.uploadedFileUrls[0] ? this.previewPics() : null}
+        </div>
+      </div>
+    )
+  }
+
 
   render() {
     //background color should be 238/238/238
@@ -64,8 +131,8 @@ class ProjectForm extends React.Component {
             <div className='title-field-label'><label className='input-label' >Project title </label></div>
             <input className='project-title-text-input' type="text"/>
           </div>
-          
-          <ContactForm />
+
+          {this.UploadComponent()}
           
           <div className='project-description-container'>
             <div><label className='input-field-label'>Project description </label></div>
