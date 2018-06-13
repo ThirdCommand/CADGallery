@@ -1,8 +1,11 @@
 import * as APIUtil from '../util/project_util';
+import { createPictures } from './picture_actions';
+
 export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 export const RECEIVE_PROJECTS = "RECEIVE_PROJECTS";
 export const RECEIVE_PROJECT_ERRORS = "RECEIVE_PROJECT_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+
 
 export const fetchProject = (projectId) => {
   return (dispatch) => {
@@ -24,12 +27,11 @@ export const fetchProjects = () => {
   }
 }
 
+// refactor to handle errors
 export const createProject = (project) => {
   return (dispatch) => {
     return APIUtil.createProject(project).then((project) => {
-      return dispatch(receiveProject(project))
-    }, (errors) => {
-      return dispatch(receiveErrors(errors.responseJSON))
+      return true
     })
   }
 }

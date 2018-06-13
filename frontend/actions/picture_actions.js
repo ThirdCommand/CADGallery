@@ -1,14 +1,25 @@
 import * as APIUtil from '../util/picture_util';
 export const RECEIVE_PICTURES = "RECEIVE_PICTURES";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
+export const RECEIVE_PICTURE_ERRORS = "RECEIVE_PICTURE_ERRORS"
 
-export const createPictures = (pictures) => {
+export const createProjectPictures = (projectPictures) => {
   return (dispatch) => {
-    return APIUtil.createPictures(pictures).then((pictures) => {
-      return dispatch(receivePictures(pictures))
-    }, (errors) => {
-      return dispatch(receiveErrors(errors.responseJSON))
+    return APIUtil.createPictures(projectPictures).then(() => {
+      return true
+    })
+    // .then((pictures) => {
+    //   return dispatch(receivePictures(pictures))
+    // }, (errors) => {
+    //   return dispatch(receiveErrors(errors.responseJSON))
+    // })
+  }
+}
+
+export const clearErrors = () => {
+  return (dispatch) => {
+    return dispatch({
+      type: CLEAR_ERRORS
     })
   }
 }
@@ -20,9 +31,11 @@ const receivePictures = (pictures) => {
   }
 }
 
+
+
 const receiveErrors = (errors) => {
   return {
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_PICTURE_ERRORS,
     errors
   }
 }
