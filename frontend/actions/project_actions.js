@@ -11,7 +11,7 @@ export const RECEIVE_CREATED_PROJECT_ID = "RECEIVE_CREATED_PROJECT_ID"
 export const fetchProject = (projectId) => {
   return (dispatch) => {
     return APIUtil.fetchProject(projectId).then((project) => {
-      return dispatch(receiveProject(project))
+      return dispatch(receiveShowProject(project))
     }, (errors) => {
       return dispatch(receiveErrors(errors.responseJSON))
     })

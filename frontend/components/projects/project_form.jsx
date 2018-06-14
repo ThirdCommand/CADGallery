@@ -27,7 +27,7 @@ class ProjectForm extends React.Component {
 
     this.handleImageUpload.bind(this);
     this.onImageDrop.bind(this);
-    const showAssets = false;
+
 
   }
 
@@ -57,7 +57,7 @@ class ProjectForm extends React.Component {
     this.props.createProject(rawProject)
     let id = this.state.redirectProjectId
     this.props.history.push(`/projects/${id}`)
-    // this.state.submitted = true
+
   }
 
   displayErrors() {

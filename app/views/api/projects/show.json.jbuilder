@@ -1,7 +1,3 @@
-
-
-
-
 json.project do
   json.extract! @project, :id, :title, :description, :user_id
 end

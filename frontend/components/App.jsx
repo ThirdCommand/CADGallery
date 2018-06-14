@@ -8,7 +8,8 @@ import SignupFormContainer from './session_form/signup_form_container';
 import SigninFormContainer from './session_form/signin_form_container';
 import SigninFormPasswordContainer from './session_form/signin_form_password_container';
 import SignupinNavBarContainer from './nav_bar/signupin_nav_bar_container';
-import projectFormContainer from './projects/projects_form_container';
+import ProjectFormContainer from './projects/projects_form_container';
+import ProjectShowContainer from './projects/projects_show_container';
 const App = () => (
   <div className="everything">
     <Switch>
@@ -18,11 +19,12 @@ const App = () => (
       <Route path="/" component={NavBarContainer}/>
     </Switch>
     <Switch>
-      <ProtectedRoute exact path="/projects/new" component={projectFormContainer}/>
-      <Route path="/projects" component={NavBarContainer}/>
+      <ProtectedRoute exact path="/projects/new" component={ProjectFormContainer}/>
+      <Route path="/projects/:projectId" component={ProjectShowContainer}/>
       <AuthRoute exact path="/signin" component={SigninFormContainer} />
       <AuthRoute exact path="/signinpassword" component={SigninFormPasswordContainer}/>
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
     </Switch>
   </div>
 );
