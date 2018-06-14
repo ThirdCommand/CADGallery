@@ -13,10 +13,10 @@
  *= require_self
  */
 
-
-@import "reset.scss";
-@import "fonts.scss";
-@import "./api/sessions.scss";
-@import "./api/navbar.scss";
-@import "./api/project_form.scss";
-@import "./api/project_show.scss";
+ @import "reset.scss";
+ @import "fonts.scss";
+ @import "./api/sessions.scss";
+ @import "./api/navbar.scss";
+ @import "./api/project_form.scss";
+ @import "./api/project_show.scss";
+ @import "./api/project_index.scss";

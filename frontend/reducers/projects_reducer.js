@@ -4,8 +4,7 @@ export default (state = {}, action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_PROJECTS:
-      newState = action.projects
-      return newState
+      return action.projects
     default:
       return state
   }

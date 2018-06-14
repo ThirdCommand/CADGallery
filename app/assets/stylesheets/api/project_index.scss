@@ -1,0 +1,19 @@
+
+.splash-zone{
+  
+}
+
+.splash-background{
+  background: image-url("cover.jpg");
+  background-color: rgb(100, 100, 100);
+  background-blend-mode: overlay;
+
+  background-position: center;
+  background-size: cover;
+  // object-fit: cover;
+  height: 655px;
+  background-repeat: no-repeat;
+}
+
+
+

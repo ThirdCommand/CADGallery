@@ -1,12 +1,8 @@
-import {
-  connect
-} from 'react-redux';
+import { connect } from 'react-redux';
 
-import ProjectShow from './project_show';
-import {
-  clearErrors,
-  fetchProjects
-} from '../../actions/project_actions';
+
+import { clearErrors, fetchProjects } from '../../actions/project_actions';
+import ProjectIndex from './project_index';
 
 const mapStateToProps = (state, ownProps) => {
   
@@ -25,4 +21,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectShow);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectIndex);

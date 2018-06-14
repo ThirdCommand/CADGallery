@@ -32,7 +32,6 @@ export default class ProjectShow extends React.Component {
   showPicture() {
     return(
       <img className='show-picture' src={`${this.props.pictures[this.state.showPictureIndex].img_url}`} />
-      
     )
   }
 
