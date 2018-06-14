@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     projectId,
     project: state.entities.showProject.project,
     pictures: Object.values(state.entities.showProject.pictures),
+    projectOwner: state.entities.showProject.user,
     currentUser: state.entities.users[state.session.id],
     errors: state.errors.project,
   };
