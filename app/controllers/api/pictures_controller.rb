@@ -1,7 +1,7 @@
 class Api::PicturesController < ApplicationController
 
-  def create_pictures(project_id)
-    pictures_params = { project_id: project_id, img_urls: params[:raw_project][:pictures]}
+  def self.create_pictures(project_id, img_urls)
+    pictures_params = { project_id: project_id, img_urls: img_urls}
     @pictures = Picture.new_pictures(pictures_params)
     if @pictures
       # go to pictures index when completed

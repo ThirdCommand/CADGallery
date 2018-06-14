@@ -1,5 +1,5 @@
 class Api::ProjectsController < ApplicationController
-
+  ActionController::Parameters.permit_all_parameters = true
   def index
     @projects = Project.all
   end
@@ -9,13 +9,21 @@ class Api::ProjectsController < ApplicationController
   end 
 
   def create 
+
+    debugger
     @project = Project.new(params[:raw_project][:project])
+  
     if @project.save
-      if Pictures.create_pictures(@project.id)
-        render "/api/projects/#{@project.id}/show"
+      project_id = @project.id
+      img_urls = params[:raw_project][:pictures]
+    
+      if PicturesController.create_pictures(project_id, img_urls)
+        render :show
       else 
         render json: ["pictures error"], status: 422
       end
+    
+     
     else 
       render json: @projects.errors.full_messages, status: 422
     end 
@@ -24,7 +32,12 @@ class Api::ProjectsController < ApplicationController
   def destroy 
     @project = Project.find(params[:d])
     @project.delete 
-    render "api/projects/show"
+    render "api/projects/index"
+  end
+
+  private
+
+  def project_params
   end
 
 end
