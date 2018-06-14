@@ -5,7 +5,7 @@
       json.imageUrl project.pictures[0].img_url # first picture uploaded is the title one
     end
     json.ownerImage project.user.img_url
-  end
+  end 
 end
 
 
