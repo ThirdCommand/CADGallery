@@ -21,8 +21,9 @@ class ProjectForm extends React.Component {
       uploadedFileUrls: [],
       uploadedFiles: [],
       submitted: false,
+      redirectProjectId: props.redirectProjectId
     }
-    
+
 
     this.handleImageUpload.bind(this);
     this.onImageDrop.bind(this);
@@ -54,7 +55,8 @@ class ProjectForm extends React.Component {
 
     let rawProject = {project, pictures}
     this.props.createProject(rawProject)
-    this.props.history.push(`/`)
+    let id = this.state.redirectProjectId
+    this.props.history.push(`/projects/${id}`)
     // this.state.submitted = true
   }
 
@@ -81,6 +83,8 @@ class ProjectForm extends React.Component {
         //add err to the errors for render
       }
       if (response.body.secure_url !== '') {
+        // this.state.uploadedFileUrls.push(response.body.secure_url)
+
         let newArray = this.state.uploadedFileUrls
 
         newArray.push(response.body.secure_url)

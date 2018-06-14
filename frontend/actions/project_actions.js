@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/project_util';
 import { createPictures } from './picture_actions';
 
-export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
+export const RECEIVE_SHOW_PROJECT = "RECEIVE_SHOW_PROJECT";
 export const RECEIVE_PROJECTS = "RECEIVE_PROJECTS";
 export const RECEIVE_PROJECT_ERRORS = "RECEIVE_PROJECT_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
@@ -34,7 +34,7 @@ export const fetchProjects = () => {
 export const createProject = (rawProject) => {
   return (dispatch) => {
     return APIUtil.createProject(rawProject).then((project) => {
-      return dispatch(receiveProject(project))
+      return dispatch(receiveShowProject(project))
     })
   }
 }
@@ -47,9 +47,9 @@ export const clearErrors = () => {
   }
 }
 
-const receiveProject = (project) => {
+const receiveShowProject = (project) => {
   return {
-    type: RECEIVE_PROJECT,
+    type: RECEIVE_SHOW_PROJECT,
     project
   }
 }

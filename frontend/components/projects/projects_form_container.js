@@ -5,9 +5,12 @@ import { createProject, clearErrors } from '../../actions/project_actions';
 import ProjectForm from './project_form'
 import { createProjectPictures } from '../../actions/picture_actions';
 const mapStateToProps = (state) => {
+
+  let projectId = state.entities.showProject.project.id
   return {
     errors: state.errors.project,
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    redirectProjectId: projectId
   };
 };
 
