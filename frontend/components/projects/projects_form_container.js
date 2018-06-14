@@ -15,7 +15,6 @@ const mapDispatchToProps = dispatch => {
   return {
     clearErrors: () => dispatch(clearErrors()),
     createProject: (project) => dispatch(createProject(project)),
-    createProjectPictures: (projectPictures) => dispatch(createProjectPictures(projectPictures))
   };
 };
 

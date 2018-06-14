@@ -10,14 +10,14 @@ class Api::ProjectsController < ApplicationController
 
   def create 
 
-    debugger
+
     @project = Project.new(params[:raw_project][:project])
   
     if @project.save
       project_id = @project.id
       img_urls = params[:raw_project][:pictures]
     
-      if PicturesController.create_pictures(project_id, img_urls)
+      if Api::PicturesController.create_pictures(project_id, img_urls)
         render :show
       else 
         render json: ["pictures error"], status: 422

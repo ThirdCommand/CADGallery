@@ -19,15 +19,24 @@ class ProjectForm extends React.Component {
       description: '',
       user_id: props.currentUser.id,
       uploadedFileUrls: [],
-      uploadedFiles: []
+      uploadedFiles: [],
+      submitted: false,
     }
+    
+
     this.handleImageUpload.bind(this);
     this.onImageDrop.bind(this);
     const showAssets = false;
+
   }
 
   componentDidMount() {
     this.props.clearErrors();
+  }
+
+
+  componentWillReceiveProps() {
+    
   }
 
   update(field) {
@@ -41,11 +50,12 @@ class ProjectForm extends React.Component {
 
     let { title, description, user_id } = this.state
     let project = {title, description, user_id}
-    debugger
-    this.props.createProject(project).then((id) => {
-      let projectPictures = { pictures: {project_id: id, pictures: this.state.uploadedFileUrls }}
-      this.props.createProjectPictures(projectPictures)
-    })
+    let pictures = this.state.uploadedFileUrls
+
+    let rawProject = {project, pictures}
+    this.props.createProject(rawProject)
+    this.props.history.push(`/`)
+    // this.state.submitted = true
   }
 
   displayErrors() {
@@ -72,7 +82,7 @@ class ProjectForm extends React.Component {
       }
       if (response.body.secure_url !== '') {
         let newArray = this.state.uploadedFileUrls
-        debugger
+
         newArray.push(response.body.secure_url)
 
         this.setState({

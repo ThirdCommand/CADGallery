@@ -29,10 +29,12 @@ export const fetchProjects = () => {
 }
 
 // refactor to handle errors
-export const createProject = (project) => {
+// add deletion of project if pictures fail to save and all that
+// in the back end
+export const createProject = (rawProject) => {
   return (dispatch) => {
-    return APIUtil.createProject(project).then((project) => {
-      return dispatch(receiveCreatedProjectID(project.id))
+    return APIUtil.createProject(rawProject).then((project) => {
+      return dispatch(receiveProject(project))
     })
   }
 }
