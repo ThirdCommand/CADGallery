@@ -70,3 +70,18 @@ private
 end
 
 ```
+
+## Upcoming Features
+
+### Autodesk Viewer API
+Utilizing Autodesk's viewer will allow 3D content to be rendered and manipulated in the browser. Users could then upload 3D models supported by Autodesk in addition to renders of their project. 
+
+### Comments
+Stay tuned! Project comments will be arriving in the next version.
+
+### Follows and Likes
+Users will be able to like projects and follow their favorite modelers in order to receive notifications as new projects are uploaded by them. 
+
+### Search
+
+Search 1.0 will simply search projects by title. Search 2.0 will include the addition of project tag metadata to allow for more general searches and catagory sorting. 
