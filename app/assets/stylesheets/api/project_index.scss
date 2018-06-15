@@ -1,4 +1,8 @@
 
+.home-page{
+  background: rgb(238, 238, 238);
+}
+
 .splash-zone{
   
 }
@@ -7,7 +11,6 @@
   background: image-url("cover.jpg");
   background-color: rgb(100, 100, 100);
   background-blend-mode: overlay;
-
   background-position: center;
   background-size: cover;
   // object-fit: cover;
@@ -15,7 +18,81 @@
   background-repeat: no-repeat;
 }
 
+.homepage-title-text-container{
+  width: 100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+}
+  
+.homepage-title-text {
+  color: #ffffffbe;
+  margin-top: 160px;
+  // margin-top: 85px;
+  // height: 100%;
+  font-size: 44px;
+  font-family: cadgallerytrue;
+  // font-family: cadgallery;
+  letter-spacing: 2px;
+  vertical-align: middle;
+}
 
+.homepage-title-subtext{
+  margin-top: 25px;
+  color: #ffffffdc;
+  font-size: 18px;
+  font-family: cadgallerytrue;
+}
+
+.projects-title-div{
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-headers{
+  margin-top: 50px;
+  color: #0696d7;
+  font-size: 35px;
+}
+
+.projects-index-container{
+  display: flex;
+  flex: roll;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-cover-container{
+  height: 300px;
+  width: 33vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.project-cover-picture{
+  background: white;
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+  transition-timing-function: linear;
+  -webkit-transition: width .35s, height .35s;
+}
+
+.project-cover-picture:hover{
+  height: 95%;
+  width: 95%;
+  background-blend-mode: overlay;
+  opacity: 0.8;
+  // object-fit: cover
+}
 
 
 
@@ -31,27 +108,47 @@
 .footer-create-button-container {
   width: 100%;
   height: 230px;
+  background: #0095D5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .create-project-button {
-  font-family: sans-serif;
+  
   letter-spacing: 1.25px;
   box-sizing: border-box;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
-  width: 125px;
-  height: 40px;
+  font-size: 30px;
+  width: 403px;
+  height: 82px;
   color: white;
   border: 1px solid white;
   border-radius: 5px;
-  background: rgb(55, 147, 197);
+  background: #0095D5;
 }
 
 
 
 .create-project-button:hover {
   border: 2px solid white;
+}
+
+.footer-bar{
+  width: 100%;
+  height: 60px;
+  background: rgb(238, 238, 238);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fix-logo-position{
+  margin-right: 50px;
 }
 
 
