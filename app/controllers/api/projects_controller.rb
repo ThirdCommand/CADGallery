@@ -10,7 +10,6 @@ class Api::ProjectsController < ApplicationController
 
   def create 
 
-
     @project = Project.new(params[:raw_project][:project])
   
     if @project.save
@@ -20,12 +19,12 @@ class Api::ProjectsController < ApplicationController
       if Api::PicturesController.create_pictures(project_id, img_urls)
         render :show
       else 
+        @project.delete
         render json: ["pictures error"], status: 422
       end
-    
      
     else 
-      render json: @projects.errors.full_messages, status: 422
+      render json: @project.errors.full_messages, status: 422
     end 
   end
 
