@@ -38,7 +38,7 @@ var prodPlugins = [
             'NODE_ENV': JSON.stringify('production')
         }
     }),
-    new webpack.optimization.minimize({
+    new config.optimization.minimize({
         compress: {
             warnings: true
         }
