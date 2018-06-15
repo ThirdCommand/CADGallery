@@ -38,7 +38,7 @@ var prodPlugins = [
             'NODE_ENV': JSON.stringify('production')
         }
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new webpack.optimize.minimize({
         compress: {
             warnings: true
         }
