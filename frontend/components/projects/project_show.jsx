@@ -8,7 +8,7 @@ export default class ProjectShow extends React.Component {
       projectId: props.projectId,
       project: props.project,
       pictures: props.pictures,
-      showPictureIndex: 1
+      showPictureIndex: 0
     }
   }
   // componentWillReceiveProps() {
