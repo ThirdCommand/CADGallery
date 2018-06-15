@@ -8,7 +8,7 @@ CADGallery is a place for engineers to show off and discuss their 3D design port
 
 https://cadgallery.herokuapp.com/#/
 
-<img src="https://giphy.com/embed/i34276WfpbJQ8HFiO1" width="480" height="290" frameBorder="0" class="giphy-embed"></img>
+![Alt Text](https://media.giphy.com/media/i34276WfpbJQ8HFiO1/giphy.gif)
 
 CADGallery was built using Postgress to manage the database. Ruby on Rails is used interact with the database and handle data requests from the front end. The fontend is handled with React along with Redux to manage the server requests and display data. 
 
