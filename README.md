@@ -10,7 +10,7 @@ https://cadgallery.herokuapp.com/#/
 
 ![Alt Text](https://media.giphy.com/media/i34276WfpbJQ8HFiO1/giphy.gif)
 
-CADGallery was built using Postgress to manage the database. Ruby on Rails is used interact with the database and handle data requests from the front end. The fontend is handled with React along with Redux to manage the server requests and display data. 
+CADGallery was built using Postgress to manage the database. Ruby on Rails is used to interact with the database and handle data requests from the front end. The fontend is handled with React along with Redux to manage the server requests and display data. 
 
 One challenge I encountered was handling the creation of projects. Users can upload images of their projects, and while they are uploading them, previews of those images are displayed. When projects are submitted, all of the needed information is sent in one dispatch to the backened and two database tables are changed. If the last picture fails a model level validation, the user needs to be given a chance to fix their projects. The metadata for the previously added pictures must be destroyed along with the project entry.
 

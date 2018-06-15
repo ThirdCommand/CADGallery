@@ -13,7 +13,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
-    "redux-logger": "^3.0.6",
+    
     "redux-thunk": "^2.3.0",
     "superagent": "^3.8.3",
     "webpack": "^4.11.1"
@@ -26,7 +26,8 @@
     "test": "test"
   },
   "devDependencies": {
-    "webpack-cli": "^3.0.2"
+    "webpack-cli": "^3.0.2",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "postinstall": "webpack",
@@ -48,3 +49,4 @@
     "npm": "5.5.1"
   }
 }
+

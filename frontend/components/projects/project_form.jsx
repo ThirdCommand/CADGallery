@@ -79,7 +79,7 @@ class ProjectForm extends React.Component {
 
     upload.end((err, response) => {
       if (err) {
-        console.error(err);
+        // console.error(err);
         //add err to the errors for render
       }
       if (response.body.secure_url !== '') {
