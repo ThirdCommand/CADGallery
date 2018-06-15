@@ -1,3 +1,4 @@
+
 @projects.each do |project|
   json.set! project.id do
     json.extract! project, :id, :title, :description
@@ -8,4 +9,11 @@
   end 
 end
 
+
+# json.pictures do
+#   json.array! @project.pictures do |picture|
+#     json.extract! picture, :id, :img_url
+#     # json.extract! picture, :id, :img_url
+#   end
+# end
 

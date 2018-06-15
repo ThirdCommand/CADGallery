@@ -32,6 +32,14 @@ export default class ProjectIndex extends React.Component {
   // }
 
 
+  handleSubmit(e) {
+    e.preventDefault;
+
+    
+    this.props.history.push(`/projects/new`)
+
+  }
+
 
   // thumbSelect(e) {
   //   e.preventDefault;
@@ -41,11 +49,21 @@ export default class ProjectIndex extends React.Component {
   // }
 
   render() {
-    
     //user the picture index to show  
     return (
-      <div className='splash-zone'>
-        <div className='splash-background' ></div>
+      <div>
+        <div className='splash-zone'>
+          <div className='splash-background' ></div>
+        </div>
+        {this.props.projects.map((project) => {
+          return (
+            <img src={`${project.imageUrl}`} alt=""/>
+          )
+        })}
+        <div className='footer-create-button-container'>
+          <button className="create-project-button" onClick={this.handleSubmit.bind(this)}>Publish</button>
+
+        </div>
       </div>
     )
   }

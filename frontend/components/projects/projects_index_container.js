@@ -7,7 +7,7 @@ import ProjectIndex from './project_index';
 const mapStateToProps = (state, ownProps) => {
   
   return {
-    projects: state.entities.projects
+    projects: Object.values(state.entities.projects)
   };
 };
 

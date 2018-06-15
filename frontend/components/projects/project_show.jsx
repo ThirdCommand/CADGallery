@@ -57,6 +57,7 @@ export default class ProjectShow extends React.Component {
     
     return(
       <div className='project-show-container'>
+        
         <div className='project-show'>
           <div className='title-owner-container'>
             <div className='title-container'><div className='title-text'>{this.props.project.title}</div></div>
@@ -71,7 +72,7 @@ export default class ProjectShow extends React.Component {
                 return(
                   <div className='selected-picture'>
                     <button onClick={(e) => { e.preventDefault; this.setState({ showPictureIndex: i }) }}>
-                      <img className='thumb-picture' src={`${picture.img_url}`} key={picture.id} />
+                      <img key={picture.id} className='thumb-picture' src={`${picture.img_url}`} />
                     </button>
                     <div className='select-underline'></div>
                   </div>
