@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createProject = createProject;
   // window.fetchProject = fetchProject;
   // window.fetchProjects = fetchProjects;
-  window.getState = store.getState; // for testing
-  window.dispatch = store.dispatch; // for testing
+  // window.getState = store.getState; // for testing
+  // window.dispatch = store.dispatch; // for testing
   ReactDOM.render(<Root store={store}/>, root);
 });

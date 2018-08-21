@@ -162,7 +162,7 @@ class ProjectForm extends React.Component {
           </div>
           <div className='form-buttons'>
             <button className="publish-button" onClick={this.handleSubmit.bind(this)}>Publish</button>
-            <button className='cancel-button'>Cancel</button>
+            <Link className='cancel-button' to="/"><p className='cancel-button-text'> Cancel</p></Link>
           </div>
         </div>
       </div>

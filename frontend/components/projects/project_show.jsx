@@ -23,9 +23,7 @@ export default class ProjectShow extends React.Component {
 
   projectOwnerName() {
     return (
-      
       <div className='project-owner-text'>{this.props.projectOwner.first_name} {this.props.projectOwner.last_name}</div>
-      
     )
   }
 
@@ -57,7 +55,6 @@ export default class ProjectShow extends React.Component {
     
     return(
       <div className='project-show-container'>
-        
         <div className='project-show'>
           <div className='title-owner-container'>
             <div className='title-container'><div className='title-text'>{this.props.project.title}</div></div>

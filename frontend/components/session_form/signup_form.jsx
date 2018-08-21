@@ -41,19 +41,6 @@ class SignupForm extends React.Component {
     );
   }
 
-  /*
-  
-  Sign in
-  
-
-  email
-  
-  new to CADGallery
-  NEW TO AUTODESK? {CREATE ACCOUNT}(link)
-  NEXT (button)
-  
-  */
-
   displayErrors()  {
     return (
       <ul>

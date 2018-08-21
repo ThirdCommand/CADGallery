@@ -165,8 +165,8 @@
 
 .cancel-button{
   font-family: sans-serif;
+  letter-spacing: 1.25px;
   box-sizing: border-box;
-  text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
   width: 125px;
@@ -175,6 +175,21 @@
   border: 1.4px solid rgb(55, 147, 197);
   border-radius: 5px;
   background: white;
+
+  text-align: center;
+  vertical-align: middle;
+  // justify-content: space-around;
+}
+
+.cancel-button-text{
+  margin-top: 10px;
+  
+  justify-content: center;
+  font-family: sans-serif;
+  letter-spacing: 1.25px;
+  text-align: center; 
+  vertical-align: middle;
+  color: rgb(55, 147, 197);
 }
 
 .cancel-button:hover{
